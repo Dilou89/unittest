@@ -1,8 +1,11 @@
 const {Pokemon} = require('./Pokemon');
+const {Dresseur} = require('./Dresseur');
 
 
 let pikachu = new Pokemon('pikachu', 200, 1, 50);
 let rondoudou = new Pokemon('rondoudou', 100, 2, 0);
+
+let sasha = new Dresseur('Sasha');
 
 let fight = (a,b) => {
 

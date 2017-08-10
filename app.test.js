@@ -1,5 +1,6 @@
 const expect = require('expect');
 const {Pokemon} = require('./Pokemon');
+const {Dresseur} = require('./Dresseur');
 let {fight, tournament} = require('./app');
 
 describe('testing pokemon creation', () => {
@@ -42,5 +43,23 @@ describe('testing tournament function', () => {
     let pikachu = new Pokemon('pikachu', 200, 5, 50);
     let rondoudou = new Pokemon('rondoudou', 100, 2, 0);
     expect(tournament(pikachu, rondoudou)).toBe(pikachu);
+  });
+});
+
+describe('testing Dresseurs', () => {
+  it('should create Sasha', () => {
+    expect(new Dresseur('Sasha')).toExist();
+  });
+
+  it('should not accept wrong input format', () => {
+    let test = new Dresseur(123);
+    expect(test.name).toNotExist();
+  });
+
+  it('should catch pikachu', () => {
+    let sasha = new Dresseur('Sasha');
+    let pikachu = new Pokemon('pikachu', 200, 5, 50);
+    sasha.catch(pikachu);
+    expect(sasha.pokemons[0]).toBe(pikachu);
   });
 });
